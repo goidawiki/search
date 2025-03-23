@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ГОЙДАСЁРЧ - Поиск везде на одной странице</title>
-    <meta name="description" content="ГОЙДАСЁРЧ - удобный поиск через Яндекс, Google, Bing и DuckDuckGo на одной странице. Ищи СВОих быстро и просто!">
-    <meta name="keywords" content="ГОЙДАСЁРЧ, поисковик, Яндекс, Google, Bing, DuckDuckGo, быстрый поиск">
+    <meta name="description" content="ГОЙДАСЁРЧ - удобный поиск через Яндекс, Google, Bing, DuckDuckGo, Brave, Yahoo и Ecosia на одной странице. Ищи СВОих быстро и просто!">
+    <meta name="keywords" content="ГОЙДАСЁРЧ, поисковик, Яндекс, Google, Bing, DuckDuckGo, Brave, Yahoo, Ecosia, быстрый поиск">
     <meta name="author" content="ГОЙДАСЁРЧ">
     <meta name="robots" content="index, follow">
     <meta property="og:title" content="ГОЙДАСЁРЧ - Поиск везде на одной странице">
-    <meta property="og:description" content="Ищи через Яндекс, Google, Bing и DuckDuckGo в одном месте. Быстро, удобно, по-нашему!">
+    <meta property="og:description" content="Ищи через Яндекс, Google, Bing, DuckDuckGo, Brave, Yahoo и Ecosia в одном месте. Быстро, удобно, по-нашему!">
     <meta property="og:type" content="website">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Ruslan+Display&display=swap" rel="stylesheet">
@@ -195,6 +195,63 @@
             border-color: #FF7755;
         }
 
+        .engine-brave {
+            background-color: #1A1C1E;
+            color: #FFFFFF;
+        }
+        .engine-brave .search-input {
+            background-color: #2A2C2E;
+        }
+        .engine-brave .search-button {
+            background-color: #FF7654;
+            color: #FFFFFF;
+        }
+        .engine-brave select {
+            border-color: #FF7654;
+            background-color: #2A2C2E;
+        }
+        .engine-brave select:focus {
+            border-color: #FF9A7A;
+        }
+
+        .engine-yahoo {
+            background-color: #2D1152;
+            color: #FFFFFF;
+        }
+        .engine-yahoo .search-input {
+            background-color: #3E1B6B;
+        }
+        .engine-yahoo .search-button {
+            background-color: #6001D2;
+            color: #FFFFFF;
+        }
+        .engine-yahoo select {
+            border-color: #6001D2;
+            background-color: #3E1B6B;
+        }
+        .engine-yahoo select:focus {
+            border-color: #8A2BE2;
+        }
+
+        .engine-ecosia {
+            background-color: #1E2521;
+            color: #E8EAED;
+        }
+        .engine-ecosia .search-input {
+            background-color: #2E352F;
+        }
+        .engine-ecosia .search-button {
+            background-color: #82B541;
+            color: #FFFFFF;
+        }
+        .engine-ecosia select {
+            border-color: #82B541;
+            background-color: #2E352F;
+        }
+        .engine-ecosia select:focus {
+            border-color: #A0D468;
+        }
+
         @media (max-width: 767px) {
             .logo {
                 font-size: 2.2rem;
@@ -250,6 +307,9 @@
                 <option value="google" selected>Google</option>
                 <option value="bing">Bing</option>
                 <option value="duckduckgo">DuckDuckGo</option>
+                <option value="brave">Brave</option>
+                <option value="yahoo">Yahoo</option>
+                <option value="ecosia">Ecosia</option>
             </select>
         </div>
     </div>
@@ -288,6 +348,15 @@
                     break;
                 case 'duckduckgo':
                     url = `https://duckduckgo.com/?q=${encodeURIComponent(query)}`;
+                    break;
+                case 'brave':
+                    url = `https://search.brave.com/search?q=${encodeURIComponent(query)}`;
+                    break;
+                case 'yahoo':
+                    url = `https://search.yahoo.com/search?p=${encodeURIComponent(query)}`;
+                    break;
+                case 'ecosia':
+                    url = `https://www.ecosia.org/search?q=${encodeURIComponent(query)}`;
                     break;
                 default:
                     url = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
