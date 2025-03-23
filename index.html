@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ГОЙДАСЁРЧ - Поиск везде на одной странице</title>
+    <meta name="description" content="ГОЙДАСЁРЧ - удобный поиск через Яндекс, Google, Bing и DuckDuckGo на одной странице. Ищи СВОих быстро и просто!">
+    <meta name="keywords" content="ГОЙДАСЁРЧ, поисковик, Яндекс, Google, Bing, DuckDuckGo, быстрый поиск">
+    <meta name="author" content="ГОЙДАСЁРЧ">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="ГОЙДАСЁРЧ - Поиск везде на одной странице">
+    <meta property="og:description" content="Ищи через Яндекс, Google, Bing и DuckDuckGo в одном месте. Быстро, удобно, по-нашему!">
+    <meta property="og:type" content="website">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Ruslan+Display&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Geologica:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Geologica', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-family: 'Ruslan Display', cursive, Arial, sans-serif;
+            font-size: 4rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .slogan {
+            font-family: 'Ruslan Display', cursive, Arial, sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .search-input {
+            flex-grow: 1;
+            font-size: 1.2rem;
+            padding: 10px;
+            border-radius: 5px 0 0 5px;
+            outline: none;
+            transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+        }
+
+        .search-button {
+            font-size: 1.2rem;
+            padding: 10px 20px;
+            border-left: none;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+        }
+
+        .search-button:hover {
+            filter: brightness(1.2);
+        }
+
+        .search-engine-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-size: 1.2rem;
+        }
+
+        select {
+            font-size: 1.2rem;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+        }
+
+        select:focus {
+            outline: none;
+        }
+
+        .engine-yandex {
+            background-color: #1A1A1A;
+            color: #FFFFFF;
+        }
+        .engine-yandex .search-input {
+            border: 2px solid #FFD700;
+            background-color: #2A2A2A;
+            color: #FFFFFF;
+        }
+        .engine-yandex .search-button {
+            border: 2px solid #FFD700;
+            background-color: #FFD700;
+            color: #000000;
+        }
+        .engine-yandex select {
+            border: 2px solid #FFD700;
+            background-color: #2A2A2A;
+            color: #FFFFFF;
+        }
+        .engine-yandex select:focus {
+            border-color: #FFEA00;
+        }
+
+        .engine-google {
+            background-color: #202124;
+            color: #E8EAED;
+        }
+        .engine-google .search-input {
+            border: 2px solid #5F6368;
+            background-color: #303134;
+            color: #E8EAED;
+        }
+        .engine-google .search-button {
+            border: 2px solid #5F6368;
+            background-color: #8AB4F8;
+            color: #202124;
+        }
+        .engine-google select {
+            border: 2px solid #5F6368;
+            background-color: #303134;
+            color: #E8EAED;
+        }
+        .engine-google select:focus {
+            border-color: #8AB4F8;
+        }
+
+        .engine-bing {
+            background-color: #171717;
+            color: #D7D7D7;
+        }
+        .engine-bing .search-input {
+            border: 2px solid #404040;
+            background-color: #252525;
+            color: #D7D7D7;
+        }
+        .engine-bing .search-button {
+            border: 2px solid #0078D4;
+            background-color: #0078D4;
+            color: #FFFFFF;
+        }
+        .engine-bing select {
+            border: 2px solid #404040;
+            background-color: #252525;
+            color: #D7D7D7;
+        }
+        .engine-bing select:focus {
+            border-color: #0078D4;
+        }
+
+        .engine-duckduckgo {
+            background-color: #222222;
+            color: #FFFFFF;
+        }
+        .engine-duckduckgo .search-input {
+            border: 2px solid #DE5833;
+            background-color: #333333;
+            color: #FFFFFF;
+        }
+        .engine-duckduckgo .search-button {
+            border: 2px solid #DE5833;
+            background-color: #DE5833;
+            color: #FFFFFF;
+        }
+        .engine-duckduckgo select {
+            border: 2px solid #DE5833;
+            background-color: #333333;
+            color: #FFFFFF;
+        }
+        .engine-duckduckgo select:focus {
+            border-color: #FF7755;
+        }
+    </style>
+</head>
+<body class="engine-google">
+    <div class="container">
+        <h1 class="logo">ГОЙДАСЁРЧ</h1>
+        <p class="slogan">Поиск везде на одной странице</p>
+        <form class="search-container" id="searchForm">
+            <input type="text" class="search-input" placeholder="Ищи СВОих..." id="searchQuery" aria-label="Поисковой запрос">
+            <button type="submit" class="search-button">Найти</button>
+        </form>
+        <div class="search-engine-wrapper">
+            <label for="search-engine-select">Выберите поисковик:</label>
+            <select id="search-engine-select" onchange="setSearchEngine(this.value)" aria-label="Выбор поисковика">
+                <option value="yandex">Яндекс</option>
+                <option value="google" selected>Google</option>
+                <option value="bing">Bing</option>
+                <option value="duckduckgo">DuckDuckGo</option>
+            </select>
+        </div>
+    </div>
+
+    <script>
+        let currentEngine = 'google';
+
+        function setSearchEngine(engine) {
+            currentEngine = engine;
+            document.body.className = `engine-${engine}`;
+            localStorage.setItem('engine', engine);
+            console.log(`Поисковик изменён на: ${engine}`); // Для отладки
+        }
+
+        window.onload = function() {
+            const savedEngine = localStorage.getItem('engine') || 'google';
+            currentEngine = savedEngine;
+            document.body.className = `engine-${savedEngine}`;
+            document.getElementById('search-engine-select').value = savedEngine;
+            console.log(`Загружен поисковик: ${savedEngine}`); // Для отладки
+        };
+
+        document.getElementById('searchForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const query = document.getElementById('searchQuery').value.trim();
+            if (!query) {
+                console.log('Поле поиска пустое'); // Для отладки
+                return;
+            }
+
+            let url = '';
+            switch (currentEngine) {
+                case 'yandex':
+                    url = `https://yandex.ru/search/?text=${encodeURIComponent(query)}`;
+                    break;
+                case 'google':
+                    url = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+                    break;
+                case 'bing':
+                    url = `https://www.bing.com/search?q=${encodeURIComponent(query)}`;
+                    break;
+                case 'duckduckgo':
+                    url = `https://duckduckgo.com/?q=${encodeURIComponent(query)}`;
+                    break;
+                default:
+                    url = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+            }
+
+            console.log(`Открывается URL: ${url}`); // Для отладки
+            window.open(url, '_blank');
+        });
+    </script>
+</body>
+</html>
